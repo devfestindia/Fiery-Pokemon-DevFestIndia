@@ -1,0 +1,8 @@
+<div class="image">
+  <div class="loader" *ngIf="!loaded">
+    <img src="../../../assets/images/ball@2x.png" />
+    <img src="../../../assets/images/ball@2x.png" />
+  </div>
+  <img #image [alt]="alt" [src]="img" class="main" />
+  <img *ngIf="shadow" [alt]="alt" [src]="img" class="blurred" />
+</div>

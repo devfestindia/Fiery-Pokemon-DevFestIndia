@@ -1,0 +1,35 @@
+@mixin font($family, $path, $weight, $style){
+  font-family: $family;
+  src:url($path + ".svg");
+  src:url($path + ".eot?#iefix") format("embedded-opentype"),
+      url($path + ".woff") format("woff"),
+      url($path + ".ttf") format("truetype"),
+      url($path + ".svg#dripicons-v2") format("svg");
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin font-ttf($family, $path, $weight, $style){
+  font-family: $family;
+  src:url($path + ".ttf") format("opentype");
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin weight(){
+  @each $weight in $weights{
+    .weight#{$weight} {
+      font-weight: $weight !important;
+    }
+  }
+}
+
+@mixin font-sizes(){
+  @each $name, $size in $font-sizes {
+    .px#{$name} {
+      font-size: #{$size}rem;
+      line-height: #{$size + ($size / 2)}rem;
+      margin-bottom: #{$size / 2}rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+})
+export class HeaderComponent implements OnInit {
+  shown: boolean = false;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  toggle() {
+    this.shown = !this.shown;
+  }
+}

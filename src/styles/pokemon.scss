@@ -1,0 +1,150 @@
+@import "./variables";
+@import "./mixin/grid";
+@import "./mixin/helpers";
+@import "./fonts";
+@import "./icons";
+
+:root {
+  font-size: 14px;
+}
+
+@media screen and (max-width: $screen-sm) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: $screen-sm + 1) and (max-width: $screen-md - 1) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: $screen-md + 1) and (max-width: $screen-lg - 1) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@include grid();
+@include weight();
+@include font-sizes();
+
+*,
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Product Sans", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: #fafafa;
+  font-family: "Product Sans", sans-serif;
+  color: $black;
+  font-size: rem(14px);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  color: $black;
+}
+
+.flex {
+  display: flex;
+
+  &.sb {
+    justify-content: space-between;
+  }
+}
+
+.clg {
+  color: $light-grey;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+section {
+  padding: rem(64px) 0;
+
+  &.first {
+    padding-top: rem(32px);
+  }
+}
+
+.pcard {
+  width: 100%;
+  margin-top: rem(32px);
+  cursor: pointer;
+  transition: $transition;
+
+  .info {
+    background-color: $white;
+    padding: rem(180px) rem(24px) rem(24) rem(24px);
+    margin-top: rem(-170px);
+    box-shadow: 0 0 rem(2px) rgba($black, 0.16);
+    transition: $transition;
+    border-radius: $radius;
+    position: relative;
+
+    h2 {
+      text-transform: capitalize;
+      margin-top: rem(12px);
+    }
+
+    .ico {
+      position: absolute;
+      right: rem(18px);
+      bottom: rem(20px);
+      font-size: rem(24px);
+      opacity: 0;
+      transition: $transition;
+      color: $light-grey;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+
+    .info {
+      box-shadow: 0 0 rem(16px) rgba($black, 0.16);
+    }
+
+    .ico {
+      opacity: 1;
+    }
+  }
+}
+
+input[type="range"] {
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input {
+  padding: rem(8px) 0;
+  border: none;
+  border-bottom: 1px solid $light-grey;
+  width: 100%;
+  font-size: rem(18px);
+  outline: none;
+}

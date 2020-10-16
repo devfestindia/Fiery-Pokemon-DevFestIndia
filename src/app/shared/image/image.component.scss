@@ -1,0 +1,72 @@
+@import "../../../styles/variables";
+
+.image {
+  position: relative;
+  width: 100%;
+
+  > img {
+    width: 100%;
+  }
+
+  .main {
+    position: relative;
+    z-index: 2;
+  }
+
+  .blurred {
+    position: absolute;
+    z-index: 1;
+    left: rem(10px);
+    top: rem(10px);
+    filter: blur(15px);
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem(32px);
+    height: rem(32px);
+    transform: translate(-50%, -50%);
+    z-index: 9;
+
+    img {
+      position: absolute;
+      width: rem(40px);
+
+      &:last-child {
+        z-index: 2;
+        border-radius: 50%;
+      }
+
+      &:first-child {
+        animation: scale 1s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+    filter: blur(10px);
+  }
+  50% {
+    transform: scale(2);
+    filter: blur(20px);
+  }
+  100% {
+    transform: scale(0.5);
+    filter: blur(10px);
+  }
+}

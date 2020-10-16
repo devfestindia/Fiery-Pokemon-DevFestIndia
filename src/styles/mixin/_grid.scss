@@ -1,0 +1,110 @@
+$gutter: 30px;
+$columns: 12;
+
+$container: (
+  "xs": 546,
+  "sm": 738,
+  "md": 972,
+  "lg": 1170,
+) !default;
+
+$breakpoints: (
+  "xs": 0,
+  "sm": strip-unit($screen-sm),
+  "md": strip-unit($screen-md),
+  "lg": strip-unit($screen-lg),
+) !default;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin grid {
+  .container-fluid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+
+    [class*="col-"] {
+      position: relative;
+      width: 100%;
+      padding-right: $gutter / 2;
+      padding-left: $gutter / 2;
+    }
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+
+    @each $slug, $size in $breakpoints {
+      @if ($size != 0) {
+        @media screen and (min-width: $size + 0px) {
+          width: map-get($container, $slug) + 0px;
+        }
+      } @else {
+        padding-left: $gutter;
+        padding-right: $gutter;
+      }
+    }
+
+    [class*="col-"] {
+      position: relative;
+      width: 100%;
+      padding-right: $gutter / 2;
+      padding-left: $gutter / 2;
+    }
+  }
+
+  @include row();
+
+  @include columns();
+}
+
+@mixin mq($breakpoint, $minMax) {
+  @if ($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (#{$minMax}-width: $breakpoint + 0px) {
+      @content;
+    }
+  }
+}
+
+@mixin columns() {
+  @each $slug, $size in $breakpoints {
+    @include mq($size, "min") {
+      @for $i from 1 through $columns {
+        @if ($slug != "") {
+          .col-#{$slug}-#{$i} {
+            flex-basis: (100 / ($columns / $i)) * 1%;
+          }
+
+          .col-#{$slug}-offset-#{$i} {
+            margin-left: (100 / ($columns / $i)) * 1%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin row {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$gutter / 2;
+    margin-left: -$gutter / 2;
+  }
+}

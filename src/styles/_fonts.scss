@@ -1,0 +1,15 @@
+@font-face {
+  @include font-ttf("Product Sans", "/assets/fonts/ps/400", 400, normal);
+}
+
+@font-face {
+  @include font-ttf("Product Sans", "/assets/fonts/ps/700", 700, normal);
+}
+
+@font-face {
+  @include font-ttf("Product Sans", "/assets/fonts/ps/900", 900, normal);
+}
+
+@font-face {
+  @include font("Feather", "/assets/fonts/feather/feather", 400, normal);
+}

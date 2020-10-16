@@ -1,0 +1,41 @@
+@import "../../../styles/variables";
+
+header {
+  padding: rem(18px) 0;
+  background-color: $white;
+
+  .logo {
+    display: inline-block;
+    width: rem(91px);
+    height: rem(34px);
+    background-image: url(../../../assets/images/logo@2x.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .flex {
+    align-items: center;
+  }
+
+  .info {
+    width: rem(28px);
+    height: rem(28px);
+    cursor: pointer;
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $blue;
+      font-size: rem(24px);
+      line-height: 0;
+    }
+  }
+
+  .about {
+    padding-top: rem(32px);
+  }
+}

@@ -1,0 +1,43 @@
+$transition: all 0.3s linear !default;
+
+$screen-sm: 767px;
+$screen-md: 991px;
+$screen-lg: 1200px;
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number/($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function rem($value) {
+  @return #{strip-unit($value) / 14}rem;
+}
+
+$section-padding: rem(85px) 0;
+
+$blue: #3a7abf;
+$yellow: #fbd631;
+$white: #ffffff;
+$black: #000000;
+$dark-grey: #404040;
+$grey: #7f7f7f;
+$light-grey: #b2b2b2;
+$off-white: #f2f2f2;
+
+$weights: (400, 700, 900) !default;
+
+$font-sizes: (
+  "72": 5.1428571429,
+  "32": 2.2857142857,
+  "24": 1.7142857143,
+  "18": 1.2857142857,
+  "14": 1,
+) !default;
+
+$radius: 3px !default;
+$default-weight: 400 !default;
+
+$transition: all 0.3s linear !default;

@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+
+footer {
+  padding-bottom: rem(64px);
+
+  .px18 {
+    margin-top: rem(12px);
+    color: $dark-grey;
+  }
+}
