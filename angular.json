@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "devfest-india-web-track"
+    }
+  },
+  "defaultProject": "devfest-india-web-track",
+  "cli": {
+    "analytics": false
+  }
 }
