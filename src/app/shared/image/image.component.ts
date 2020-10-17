@@ -21,21 +21,37 @@ export class ImageComponent implements OnInit, AfterViewInit {
 
   loaded: boolean = false;
   img: string = '../../../assets/images/blank.png';
+  observer: IntersectionObserver;
 
-  constructor() {}
+  constructor() {
+    this.handleLoad = this.handleLoad.bind(this);
+    this.handleError = this.handleError.bind(this);
+  }
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    const observer: IntersectionObserver = new IntersectionObserver(
-      this.inview.bind(this),
-      {
-        threshold: 1.0,
-        rootMargin: '100px',
-      }
-    );
+    this.observer = new IntersectionObserver(this.inview.bind(this), {
+      threshold: 1.0,
+      rootMargin: '100px',
+    });
 
-    observer.observe(this.image.nativeElement);
+    this.observer.observe(this.image.nativeElement);
+  }
+
+  private handleLoad(event: any) {
+    if (event.target.complete) {
+      this.loaded = true;
+      this.img = this.src;
+    }
+  }
+
+  private handleError(event: any) {
+    this.loaded = true;
+    this.img = '../../../assets/images/nopoke.png';
+    this.observer.unobserve(event.target);
+    event.target.removeEventListener('load', this.handleLoad);
+    event.target['src'] = '../../../assets/images/nopoke.png';
   }
 
   private inview(
@@ -44,12 +60,9 @@ export class ImageComponent implements OnInit, AfterViewInit {
   ) {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.intersectionRatio) {
-        entry.target.addEventListener('load', (event: any) => {
-          if (event.target.complete) {
-            this.loaded = true;
-            this.img = this.src;
-          }
-        });
+        entry.target.addEventListener('load', this.handleLoad);
+
+        entry.target.addEventListener('error', this.handleError);
 
         entry.target['src'] = this.src;
         observer.unobserve(entry.target);

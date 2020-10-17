@@ -28,11 +28,23 @@ export class PokemonComponent implements OnInit {
     });
   }
 
+  private parseStat() {
+    const _stat: any = {};
+    this.details.moves = this.details.moves.slice(0, 10);
+
+    this.details.stats.forEach((stat: any) => {
+      _stat[stat.stat.name] = stat.base_stat;
+    });
+
+    this.stat = _stat;
+  }
+
   private fetch() {
 
     this.pokemon.details(this.id).subscribe(
       res => {
         this.details = res;
+        this.parseStat();
       }
     );
 
