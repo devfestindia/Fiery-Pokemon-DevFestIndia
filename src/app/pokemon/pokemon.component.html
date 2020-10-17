@@ -1,0 +1,171 @@
+<section class="first details">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a routerLink="/" class="clg link"
+          ><i class="icon-arrow-left"></i> Back to list</a
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="image">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+                    id
+                  }}.png"
+                  [alt]="details.name"
+                />
+                <div class="shadow"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info">
+                <label class="px24">#{{ id }}</label>
+                <h1>{{ details.name }}</h1>
+
+                <div class="block">
+                  <label>About</label>
+                  <p class="px18">{{ about.join("") }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="info">
+                <h3>Stats</h3>
+
+                <div class="row">
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>HP</label>
+                      <p class="px18">{{ stat.hp }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>Attack</label>
+                      <p class="px18">{{ stat.attack }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>Defense</label>
+                      <p class="px18">{{ stat.defense }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>Speed</label>
+                      <p class="px18">{{ stat.speed }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>Spl. Attack</label>
+                      <p class="px18">{{ stat["special-attack"] }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-xs-6">
+                    <div class="block">
+                      <label>Spl. Defense</label>
+                      <p class="px18">{{ stat["special-defense"] }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="info">
+                    <div class="block">
+                      <label>Top Moves</label>
+                      <p class="px18">
+                        <span
+                          *ngFor="let move of details.moves"
+                          class="capitalize"
+                          >{{ move.move.name }}</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info">
+                <div class="row">
+                  <div class="col-md-2 col-xs-6">
+                    <div class="block">
+                      <label>Weight</label>
+                      <p class="px18">{{ details.weight }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                    <div class="block">
+                      <label>Height</label>
+                      <p class="px18">{{ details.height }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                    <div class="block">
+                      <label>Experience</label>
+                      <p class="px18">{{ details.base_experience }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-xs-6">
+                    <div class="block">
+                      <label>Shape</label>
+                      <p class="px18 capitalize">{{ shape }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="block">
+                      <label>Type</label>
+                      <p class="px18">
+                        <span
+                          *ngFor="let type of details.types"
+                          class="capitalize"
+                          >{{ type.type.name }}</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="block">
+                      <label>Abilities</label>
+                      <p class="px18">
+                        <span
+                          *ngFor="let ability of details.abilities"
+                          class="capitalize"
+                          >{{ ability.ability.name }}</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="block">
+                      <label>Growth Rate</label>
+                      <p class="px18">
+                        {{ growthRate }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

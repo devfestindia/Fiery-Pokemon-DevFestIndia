@@ -1,0 +1,88 @@
+@import "../../styles/variables";
+
+.details {
+  .link {
+    margin-bottom: rem(32px);
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+    font-size: rem(16px);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .box {
+    background-color: $white;
+    margin-top: rem(80px);
+    box-shadow: 0 0 rem(5px) rgba($black, 0.16);
+    border-radius: rem(3px);
+    padding-bottom: rem(24px);
+
+    label {
+      font-weight: 900;
+      color: $light-grey;
+    }
+
+    .info {
+      padding: rem(18px) rem(24px) 0 rem(24px);
+
+      h1 {
+        font-size: rem(52px);
+        text-transform: capitalize;
+        margin-top: rem(14px);
+      }
+    }
+  }
+
+  .image {
+    position: relative;
+    margin-top: rem(-132px);
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+
+    .shadow {
+      background: $black;
+      height: 30px;
+      border-radius: 50%;
+      filter: blur(15px);
+      width: 80%;
+      opacity: 0.5;
+      margin: 0 auto;
+    }
+  }
+
+  .block {
+    margin-top: rem(24px);
+
+    label {
+      margin-bottom: rem(8px);
+      display: block;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 1.5em;
+      position: relative;
+
+      &:last-child {
+        margin-right: 0;
+
+        &::after {
+          content: none;
+        }
+      }
+
+      &::after {
+        position: absolute;
+        content: "●";
+        right: -1.9em;
+        top: 0;
+        color: $light-grey;
+        font-size: 0.5em;
+      }
+    }
+  }
+}
