@@ -11,9 +11,9 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, PokemonComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, GlobalModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

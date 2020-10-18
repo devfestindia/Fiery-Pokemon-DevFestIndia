@@ -8,7 +8,8 @@ const routes: Routes = [
     path: '', component : HomeComponent
   },
   {
-    path: 'pokemon/:id', component : PokemonComponent
+    path: 'pokemon/:id',
+    loadChildren: () => import('./pokemon/pokemon.module').then(m=> m.PokemonModule)
   },
 ];
 
